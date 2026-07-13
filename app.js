@@ -69,7 +69,7 @@ async function loadRoom(id = state.room?.id) {
   // instead of waiting on one before starting the other.
   const [{ data: room, error }, { data: members, error: memberError }] = await Promise.all([
     supabase.from('rooms').select('id, code, name, visibility, owner_id, status').eq('id', id).single(),
-    supabase.from('room_members').select('id, room_id, user_id, display_name, avatar_path, joined_at').eq('room_id', id).order('joined_at')
+    supabase.from('room_members').select('room_id, user_id, display_name, avatar_path, joined_at').eq('room_id', id).order('joined_at')
   ]);
   if (error) throw error; if (memberError) throw memberError;
   state.room = room;
