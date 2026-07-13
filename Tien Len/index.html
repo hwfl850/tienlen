@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#081d1a" />
+    <meta name="description" content="A private, beautifully playable multiplayer Tien Len table." />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link rel="stylesheet" href="./styles.css" />
+    <title>Lantern Table · Tien Len</title>
+  </head>
+  <body>
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
+    <main id="app" class="app-shell" aria-live="polite">
+      <section id="loading-screen" class="loading-screen">
+        <div class="brand-mark" aria-hidden="true">十三</div>
+        <p>Setting the table…</p>
+      </section>
+    </main>
+    <noscript>This table needs JavaScript enabled.</noscript>
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
