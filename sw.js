@@ -1,4 +1,4 @@
-const CACHE = 'lantern-table-v1';
+const CACHE = 'lantern-table-v2';
 const APP_SHELL = [
   './', './index.html', './styles.css', './app.js', './supabase-config.js', './manifest.webmanifest', './favicon.svg'
 ];
@@ -15,15 +15,20 @@ self.addEventListener('activate', (event) => {
   self.clients.claim();
 });
 
+// Network-first: always prefer the freshest deployed code, falling back to the
+// cached copy only when offline. A cache-first strategy previously kept serving
+// stale app.js/index.html after every deploy, which looked like the game was
+// still "glitchy" even after fixes shipped.
 self.addEventListener('fetch', (event) => {
   if (event.request.method !== 'GET') return;
   const url = new URL(event.request.url);
   if (url.origin !== self.location.origin) return;
-  event.respondWith(caches.match(event.request).then((cached) => {
-    const network = fetch(event.request).then((response) => {
-      if (response.ok) caches.open(CACHE).then((cache) => cache.put(event.request, response.clone()));
-      return response;
-    }).catch(() => cached);
-    return cached || network;
-  }));
+  event.respondWith(
+    fetch(event.request)
+      .then((response) => {
+        if (response.ok) caches.open(CACHE).then((cache) => cache.put(event.request, response.clone()));
+        return response;
+      })
+      .catch(() => caches.match(event.request))
+  );
 });
