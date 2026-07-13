@@ -1,4 +1,4 @@
-const CACHE = 'lantern-table-v6';
+const CACHE = 'lantern-table-v7';
 const APP_SHELL = [
   './', './index.html', './styles.css', './app.js', './supabase-config.js', './manifest.webmanifest', './favicon.svg'
 ];
