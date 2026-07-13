@@ -1,0 +1,10 @@
+{
+  "name": "Lantern Table — Tien Len",
+  "short_name": "Tien Len",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#081d1a",
+  "theme_color": "#081d1a",
+  "icons": []
+}
+

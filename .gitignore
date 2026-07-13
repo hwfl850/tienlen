@@ -1,0 +1,32 @@
+# OS and editor noise
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Local environment files and credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.crt
+
+# Supabase is deployed/configured separately and is not needed by GitHub Pages.
+# Do not commit database policies, migrations, Edge Function source, local CLI state,
+# or function environment files to this public frontend repository.
+/supabase/
+.supabase/
+
+# Saved third-party/reference game capture; the new site is served from the root.
+/thirteen/
+/shared/
+
+# Development notes/examples are not required for the deployed GitHub Pages site.
+/README.md
+/supabase-config.example.js
+
+# Keep supabase-config.js tracked: it contains only the public Project URL and
+# publishable/anon key required by the browser. Never put a service-role key here.
+!/supabase-config.js
