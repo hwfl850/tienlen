@@ -1,0 +1,19 @@
+# Cache-control rules understood by Netlify and Cloudflare Pages (ignored, harmlessly, by
+# any other static host — GitHub Pages, Vercel static output, etc. simply skip this file).
+#
+# Static assets that only ever change under a new deploy (and are re-fetched anyway once the
+# service worker's CACHE version bumps) get a long-lived, cache-busting-safe cache lifetime.
+# index.html and the service worker itself must stay short-lived so a new deploy is picked up
+# promptly instead of being served stale from a shared/browser cache for a long TTL.
+/styles.css
+  Cache-Control: public, max-age=604800, must-revalidate
+/favicon.svg
+  Cache-Control: public, max-age=604800, must-revalidate
+/manifest.webmanifest
+  Cache-Control: public, max-age=604800, must-revalidate
+/app.js
+  Cache-Control: public, max-age=0, must-revalidate
+/sw.js
+  Cache-Control: public, max-age=0, must-revalidate
+/index.html
+  Cache-Control: public, max-age=0, must-revalidate

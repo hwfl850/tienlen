@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap');
-
+/* Google Fonts are now loaded from index.html (see the comment there) instead of via
+   @import, so the font request no longer waits behind this file's own download+parse. */
 :root { --ink:#eef8ed; --muted:#9cb3a6; --line:rgba(213,238,215,.13); --panel:rgba(13,43,37,.78); --panel-solid:#0d2b25; --gold:#f3c96b; --red:#e46559; --green:#4fc790; --shadow:0 24px 80px rgba(0,0,0,.36); }
 * { box-sizing:border-box; }
 body { margin:0; min-width:320px; color:var(--ink); background:#081d1a; font-family:'DM Sans',system-ui,sans-serif; min-height:100vh; overflow-x:hidden; }

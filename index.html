@@ -8,6 +8,16 @@
     <link rel="manifest" href="./manifest.webmanifest" />
     <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <!--
+      Google Fonts used to be loaded via @import inside styles.css, which forces the browser
+      to download the whole stylesheet, parse it, discover the @import, and only then start
+      fetching the font CSS — a fully serial chain that delayed first paint. Declaring the font
+      stylesheet and its preconnects here lets the browser discover and fetch everything (local
+      CSS + font CSS + font files) in parallel from the very first scan of the document head.
+    -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" />
     <link rel="stylesheet" href="./styles.css" />
     <title>Lantern Table · Tien Len</title>
   </head>
